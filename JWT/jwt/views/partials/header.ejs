@@ -9,8 +9,13 @@
   <nav>
     <h1><a href="/">Bookin</a></h1>
     <ul>
+      <% if (user) {%>
+      <li>Welcome, <%= user.email %> </li>
+      <li><a href="/logout" class="btn">Log Out</a></li>
+      <% } else { %> 
       <li><a href="/login">Log in</a></li>
       <li><a href="/signup" class="btn">sign up</a></li>
+      <% } %> 
     </ul>
   </nav>
   

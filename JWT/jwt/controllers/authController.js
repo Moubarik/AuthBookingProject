@@ -5,7 +5,7 @@ const  jwt = require('jsonwebtoken');
 const handleErrors = (err) =>{
     console.log(err.message, err.code);
     let errors = { email: '', password: ''};
-  // incorrect email
+// incorrect email
     if(err.message === 'incorecct email'){
         errors.email = 'that email is not registred';
     }
@@ -82,3 +82,7 @@ module.exports.login_post = async (req, res) => {
     }
 }
 
+module.exports.logout_get = (req, res) => {
+  res.cookie('jwt', '', { maxAge: 1 });
+  res.redirect('/');
+}
